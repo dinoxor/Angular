@@ -1,0 +1,26 @@
+body {
+    font-family: "consolas";
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  .output {
+    color: magenta;
+  }
+  
+  .complete {
+    color: blue;
+  }
+  
+  .incomplete {
+    color: red;
+  }
+  
+  .inline {
+    display: inline;
+  }
+  
