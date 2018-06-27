@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app lang="en">
+<head>
+    <script src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/controller.js" async defer></script>
+    <script>
+        function MyFirstCtrl($scope) {
+    // populate the employees variables with some model data
+    var employees = ['Chris Grant', 'Monica Grant', 'Chistopher Grant', 'Jennifer Grant'];
+
+    //place model data into scope
+    $scope.ourEmployees = employees;}
+    </script>
+</head>
+
+<body ng-controller='MyFirstCtrl'>
+    <h2>Number of Employees: {{ourEmployees.length}}</h2>
+    <p ng-repeat="employee in ourEmployees">{{employee}}</p>
+</body>
+</html>

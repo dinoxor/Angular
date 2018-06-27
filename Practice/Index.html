@@ -5,22 +5,37 @@
     <script src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/practice.js" async defer></script>
     <link rel="stylesheet" type"text/css" href="style.css">
-
 </head>
+
 <body>    
 
-
+    <h1><u>ng-model</u></h1>
     <link rel="stylesheet" type"text/css" href="style.css">
     <span id="output"></span>
 
     <label>City: <input ng-model="city" type="text"/></label>
-    <p>Hello {{city}}</p>
-    
-  
+    <p>Hello {{city}}</p> 
         
-        <input type="text" id="cityInput">
-        <p id="cityOutput">asdf</p>
+    <input type="text" id="cityInput">
+    <p id="cityOutput">asdf</p>
+
+    <h1><u>ng-show</u></h1>
+    <p ng-show="true"> Paragraph 1</p>
+    <p ng-show="false"> Paragrah 2</p>
+    <p ng-show="1 == 1"> Paragraph 3</p>
+    <p ng-show="1==2"> Paragraph 4</p>
+
+    <h1><u>ng-click</u></h1>
+    <button ng-click="count = count+1" ng-init="count = 0">Increment</button>
+    <P>count:{{count}}</P>
+
+    <h1><u>Expressions Examples</u></h1>
+    <p>6 + 4 = {{6 + 4}}</p>
+    <p>{{"Beginning AngularJs".toUpperCase()}}</p>
+    <p>{{"ABCDEFG".indexOf('D')}}</p>
+    <p>{{1==1 ? "Red" : "Blue"}}</p>
     
+
         
 </body>
-</html>
+</html> 
