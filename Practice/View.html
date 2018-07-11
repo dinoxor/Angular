@@ -1,20 +1,71 @@
 <!DOCTYPE html>
-<html ng-app lang="en">
+<html ng-app>
 <head>
     <script src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/controller.js" async defer></script>
+    <!-- calling script liek this will not work -->
     <script>
         function MyFirstCtrl($scope) {
     // populate the employees variables with some model data
     var employees = ['Chris Grant', 'Monica Grant', 'Chistopher Grant', 'Jennifer Grant'];
 
+    var someData= {
+        firstName: 'JENNA',
+        surname: 'GRANT',
+        dateJoined: new Date(2010, 2, 23),
+        consumption: 123.456789,
+        plan: 'super-basic-plan',
+        monthlyUsageHistory: [123.659855,
+                                89.645222,
+                                97.235644,
+                                129.555555,
+                                188.699855,
+                                65.652545,
+                                123.659855,
+                                89.645222,
+                                97.235644,
+                                129.55555,
+                                188.699855,
+                                65.652545]
+    };
+
     //place model data into scope
-    $scope.ourEmployees = employees;}
+    $scope.ourEmployees = employees;
+    $scope.data = someData;
+    };
     </script>
 </head>
 
 <body ng-controller='MyFirstCtrl'>
     <h2>Number of Employees: {{ourEmployees.length}}</h2>
-    <p ng-repeat="employee in ourEmployees">{{employee}}</p>
+    <p ng-repeat="employee in ourEmployees">{{employee | lowercase}}</p>
+
+    <p>{{data.consumption | number}}</p>
+    <p>{{data.consumption | number : 2}}</p>
+
+    <p>1. {{data.dateJoined}}</p>
+    <p>2. {{data.dateJoined | date:'medium'}}</p>
+    <p>3. {{data.dateJoined | date:'mediumDate'}}</p>
+    <p>4. {{data.dateJoined | date:'shortDate'}}</p>
+    <p>5. {{data.dateJoined | date:'MMMM'}} of {{data.dateJoined | date:'EEEE'}} at {{data.dateJoined | date:'ha'}}</p>
+
+    <h2>will not display because of duplicates </h2>
+    <ul>        
+        <li ng-repeat="gigabyte in data.monthlyUsageHistory"> {{gigabyte}}
+        </li>
+    </ul>
+
+    <h2>Will display first 5 </h2>
+    <ul>
+        <li ng-repeat="gigabyte in data.monthlyUsageHistory | limitTo:5"> {{gigabyte | number:2}}
+        </li>
+    </ul>
+
+    <h2>last 3 </h2>
+    <ul>        
+        <li ng-repeat="gigabyte in data.monthlyUsageHistory | limitTo:-3"> {{gigabyte | number:2}}
+        </li>
+    </ul>
+
 </body>
 </html>

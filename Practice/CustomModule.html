@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang = "en">
+    <meta charset="UTF-8">
+    <script src="js/angular.min.js"></script>
+    <script src="js/myAppModule.js"></script>
+</head>
+<body ng-app="myAppModule" ng-controller="MyFilterDemoCtrl">
+    <P>Plan type: {{data.plan}}</P>
+    <p>Plan type: {{data.plan | stripDashes}}</p>
+    <br/>
+    <p>{{data.firstName | toTitleCase}}</p>
+    <p>{{data.surname | toTitleCase}}</p>
+    <p>{{data.firstName +" "+ data.surname | toTitleCase}}</p>
+
+
+</body>
+
+</html>
